@@ -21,13 +21,13 @@ print(digit_two)
 print(digit_three)
 print(digit_four)
 
-"""
-A program to display the digits of a 4-digit number in a column with an empty line between them.
-
-The user enters a 4-digit number from the keyboard.
-The program divides this number into separate digits using the // and % operations.
-Each digit is displayed separately with an indent (empty line) between the digits.
-"""
+# """
+# A program to display the digits of a 4-digit number in a column with an empty line between them.
+#
+# The user enters a 4-digit number from the keyboard.
+# The program divides this number into separate digits using the // and % operations.
+# Each digit is displayed separately with an indent (empty line) between the digits.
+# """
 
 # number = int(input("Enter a 4-digit number: ")) # User enters a 4-digit number
 #
