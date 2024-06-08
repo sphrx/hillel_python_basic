@@ -6,7 +6,8 @@ The program divides this number into separate digits using the // and % operatio
 Each digit is displayed separately on a new line.
 """
 
-number = int(input("Enter a 4-digit number: ")) # User enters a 4-digit number
+# User enters a 4-digit number
+number = int(input("Enter a 4-digit number: "))
 
 # We get the sequence of digits of a number using arithmetic operators.
 digit_one = number // 1000
