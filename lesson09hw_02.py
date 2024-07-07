@@ -15,10 +15,10 @@ assert difference(10.2, -2.2, 0, 1.1, 0.5) == 12.4, 'Test3'
 assert difference() == 0, 'Test5'
 print('OK')
 
-# Interactive input
-"Enter numbers separated by spaces (press Enter when done):"
-user_input = input("Enter numbers separated by spaces (press Enter when done): ")
-numbers = [float(num) for num in user_input.split()]
-
-result = difference(*numbers)
-print(f"The difference between the maximum and minimum values is: {result}")
+# # Interactive input
+# "Enter numbers separated by spaces (press Enter when done):"
+# user_input = input("Enter numbers separated by spaces (press Enter when done): ")
+# numbers = [float(num) for num in user_input.split()]
+#
+# result = difference(*numbers)
+# print(f"The difference between the maximum and minimum values is: {result}")
