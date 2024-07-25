@@ -1,16 +1,16 @@
 class Human:
-    def __init__(self, gender, age, first_name, last_name):
-        self.gender = gender
-        self.age = age
+    def __init__(self, first_name, last_name, age, gender):
         self.first_name = first_name
         self.last_name = last_name
+        self.age = age
+        self.gender = gender
 
     def __str__(self):
-        return f"Name: {self.first_name} {self.last_name}, Gender: {self.gender}, Age: {self.age}"
+        return f"Name: {self.first_name} {self.last_name}, Age: {self.age}, Gender: {self.gender}"
 
 class Student(Human):
-    def __init__(self, gender, age, first_name, last_name, record_book):
-        super().__init__(gender, age, first_name, last_name)
+    def __init__(self, first_name, last_name, age, gender, record_book):
+        super().__init__(first_name, last_name, age, gender)
         self.record_book = record_book
 
     def __str__(self):
@@ -40,8 +40,8 @@ class Group:
         return f'Number: {self.number}\n{all_students}'
 
 # Тестирование
-st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
-st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
+st1 = Student('Steve', 'Jobs', 30, 'Male', 'AN142')
+st2 = Student('Liza', 'Taylor', 25, 'Female', 'AN145')
 gr = Group('PD1')
 gr.add_student(st1)
 gr.add_student(st2)
