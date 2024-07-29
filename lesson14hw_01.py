@@ -2,6 +2,7 @@ class MaxStudentsReachedError(Exception):
     """Exception raised when attempting to add more than 10 students to a group."""
     pass
 
+
 class Human:
     def __init__(self, first_name, last_name, age, gender):
         self.first_name = first_name
@@ -12,6 +13,7 @@ class Human:
     def __str__(self):
         return f"Name: {self.first_name} {self.last_name}, Age: {self.age}, Gender: {self.gender}"
 
+
 class Student(Human):
     def __init__(self, first_name, last_name, age, gender, record_book):
         super().__init__(first_name, last_name, age, gender)
@@ -19,6 +21,7 @@ class Student(Human):
 
     def __str__(self):
         return f"{super().__str__()}, Record Book: {self.record_book}"
+
 
 class Group:
     def __init__(self, number):
@@ -45,12 +48,13 @@ class Group:
         all_students = '\n'.join(str(student) for student in self.group)
         return f'Number: {self.number}\n{all_students}'
 
+
 # Тестирование
 gr = Group('PD1')
 
 # Добавляем 10 студентов
 for i in range(1, 11):
-    st = Student(f'Name{i}', f'Lastname{i}', 20 + i, 'Male', f'AN{100+i}')
+    st = Student(f'Name{i}', f'Lastname{i}', 20 + i, 'Male', f'AN{100 + i}')
     gr.add_student(st)
 
 print(gr)
