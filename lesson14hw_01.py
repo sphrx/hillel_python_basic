@@ -1,3 +1,7 @@
+class MaxStudentsReachedError(Exception):
+    """Exception raised when attempting to add more than 10 students to a group."""
+    pass
+
 class Human:
     def __init__(self, first_name, last_name, age, gender):
         self.first_name = first_name
@@ -22,13 +26,9 @@ class Group:
         self.group = set()
 
     def add_student(self, student):
-        try:
-            if len(self.group) >= 10:
-                raise ValueError("Cannot add more than 10 students to a group.")
-            self.group.add(student)
-            print(f"СStudent {student.last_name} has been successfully added to the group.")
-        except ValueError as e:
-            print(f"Ошибка: {e}")
+        if len(self.group) >= 10:
+            raise MaxStudentsReachedError("It is not possible to add more than 10 students to a group.")
+        self.group.add(student)
 
     def delete_student(self, last_name):
         student = self.find_student(last_name)
@@ -48,30 +48,29 @@ class Group:
 # Тестирование
 gr = Group('PD1')
 
-# Добавляем студентов
-st1 = Student('Name1', 'Lastname1', 21, 'Male', 'AN101')
-gr.add_student(st1)
-for i in range(2, 11):
+# Добавляем 10 студентов
+for i in range(1, 11):
     st = Student(f'Name{i}', f'Lastname{i}', 20 + i, 'Male', f'AN{100+i}')
     gr.add_student(st)
 
 print(gr)
-print(f"Количество студентов в группе: {len(gr.group)}")
-
-# Проверяем, что студент с фамилией 'Lastname1' находится в группе
-found_student = gr.find_student('Lastname1')
-assert found_student is not None, 'Test1: Student Lastname1 not found'
-assert str(found_student) == str(st1), 'Test1: Incorrect student data'
-
-assert gr.find_student('NonExistent') is None, 'Test2'
-assert isinstance(gr.find_student('Lastname2'), Student) is True, 'The search method must return an instance'
-
-gr.delete_student('Lastname3')
-print(gr)
-print(f"Number of students in the group after removal: {len(gr.group)}")
+print(f"Number of students in the group: {len(gr.group)}")
 
 # Пытаемся добавить 11-го студента
 st11 = Student('Extra', 'Student', 31, 'Female', 'AN111')
-gr.add_student(st11)
 
-print(f"Total number of students in the group: {len(gr.group)}")
+try:
+    gr.add_student(st11)
+except MaxStudentsReachedError as e:
+    print(f"Ошибка: {e}")
+
+print(f"The number of students in the group after the addition attempt: {len(gr.group)}")
+
+# Проверка остальной функциональности
+assert str(gr.find_student('Lastname1')) == str(gr.group.pop()), 'Test1'
+assert gr.find_student('NonExistent') is None, 'Test2'
+assert isinstance(gr.find_student('Lastname2'), Student) is True, 'The search method must return an instance of'
+
+gr.delete_student('Lastname3')
+print(gr)
+print(f"The number of students in the group after removal: {len(gr.group)}")
