@@ -46,3 +46,4 @@ f_2 = Fraction(3, 6)
 assert f_1 == f_2  # True
 
 print('Test OK')
+

@@ -44,3 +44,4 @@ assert r4.get_square() == 32, 'Test4'
 assert Rectangle(3, 6) == Rectangle(2, 9), 'Test5'
 
 print("Test OK")
+
