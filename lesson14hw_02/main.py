@@ -20,4 +20,4 @@ for i in range(10):
 # Это должно вывести сообщение об ошибке
 gr.add_student(Student('Female', 22, 'Extra', 'Student', 'AN999'))
 
-print(f"Итоговое количество студентов в группе: {len(gr.group)}")
+print(f"Total number of students in the group: {len(gr.group)}")

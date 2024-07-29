@@ -5,7 +5,7 @@ class Group:
 
     def add_student(self, student):
         if len(self.group) >= 10:
-            print("Ошибка: Невозможно добавить более 10 студентов в группу.")
+            print("Error: Cannot add more than 10 students to a group.")
             return
         self.group.add(student)
 

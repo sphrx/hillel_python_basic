@@ -24,9 +24,9 @@ class Group:
     def add_student(self, student):
         try:
             if len(self.group) >= 10:
-                raise ValueError("Невозможно добавить более 10 студентов в группу.")
+                raise ValueError("Cannot add more than 10 students to a group.")
             self.group.add(student)
-            print(f"Студент {student.last_name} успешно добавлен в группу.")
+            print(f"СStudent {student.last_name} has been successfully added to the group.")
         except ValueError as e:
             print(f"Ошибка: {e}")
 
@@ -64,14 +64,14 @@ assert found_student is not None, 'Test1: Student Lastname1 not found'
 assert str(found_student) == str(st1), 'Test1: Incorrect student data'
 
 assert gr.find_student('NonExistent') is None, 'Test2'
-assert isinstance(gr.find_student('Lastname2'), Student) is True, 'Метод поиска должен возвращать экземпляр'
+assert isinstance(gr.find_student('Lastname2'), Student) is True, 'The search method must return an instance'
 
 gr.delete_student('Lastname3')
 print(gr)
-print(f"Количество студентов в группе после удаления: {len(gr.group)}")
+print(f"Number of students in the group after removal: {len(gr.group)}")
 
 # Пытаемся добавить 11-го студента
 st11 = Student('Extra', 'Student', 31, 'Female', 'AN111')
 gr.add_student(st11)
 
-print(f"Итоговое количество студентов в группе: {len(gr.group)}")
+print(f"Total number of students in the group: {len(gr.group)}")
